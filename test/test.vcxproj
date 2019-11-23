@@ -115,6 +115,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="test_algorithm.cpp" />
+    <ClCompile Include="test_container.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="test_class.cpp" />
+    <ClCompile Include="test_function.cpp" />
+    <ClCompile Include="test_pointer.cpp" />
+    <ClCompile Include="test_string.cpp" />
+    <ClCompile Include="test_thread.cpp" />
+    <ClCompile Include="test_time.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="test_algorithm.h" />
+    <ClInclude Include="test_container.h" />
+    <ClInclude Include="test_function.h" />
+    <ClInclude Include="test_pointer.h" />
+    <ClInclude Include="test_string.h" />
+    <ClInclude Include="test_class.h" />
+    <ClInclude Include="test_thread.h" />
+    <ClInclude Include="test_time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
