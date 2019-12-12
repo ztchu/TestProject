@@ -94,4 +94,19 @@ namespace test_container {
         uint32_t totalTime = com_diff.count() * 1000;
         std::cout << "total time: " << totalTime;
     }
+
+    void TestMoveVector() {
+        std::vector<int> vec{ 1, 2, 3 };
+        for (auto i = 0; i < vec.size(); ++i) {
+            if (i == 1) {
+                auto m = std::move(vec[i]);
+                std::cout << m << std::endl;
+            }
+        }
+
+        std::cout << vec.size() << std::endl;
+        for (auto i = 0; i < vec.size(); ++i) {
+            std::cout << vec[i] << std::endl;
+        }
+    }
 }
