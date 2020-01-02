@@ -11,4 +11,8 @@ namespace test_container {
     void TestMap();
 
     void TestMoveVector();
+
+    void  TestVectorPtr();
+
+    void TestQueue();
 }

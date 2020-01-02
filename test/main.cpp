@@ -15,7 +15,7 @@
 int main() {
     //test_string::TestEmptyString();
     //test_thread::TestThreadJoin();
-    test_container::TestMoveVector();
+    test_container::TestQueue();
     //test_class::TestDeleteThis();
     //assert(0);
     //test_chrono::TestTimepoint();

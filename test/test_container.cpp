@@ -4,6 +4,7 @@
 #include <iostream>
 #include <list>
 #include <map>
+#include <queue>
 #include <set>
 #include <string>
 #include <vector>
@@ -107,6 +108,53 @@ namespace test_container {
         std::cout << vec.size() << std::endl;
         for (auto i = 0; i < vec.size(); ++i) {
             std::cout << vec[i] << std::endl;
+        }
+    }
+
+    class TestVectorElement {
+    public:
+        TestVectorElement(std::size_t len) {
+            data_ = new uint8_t[len];
+        }
+        ~TestVectorElement() {
+            delete[] data_;
+        }
+    private:
+        uint8_t *data_;
+    };
+
+    void  TestVectorPtr() {
+        std::vector<std::unique_ptr<TestVectorElement>> vec;
+        constexpr int vec_size = 3;
+        for (int i = 0; i < vec_size; ++i) {
+            vec.emplace_back(new TestVectorElement(i));
+        }
+        /*for (int i = 0; i < vec_size; ++i) {
+            std::cout << "elem: " << *vec[i] << std::endl;
+        }*/
+        for (int i = 0; i < vec_size; ++i) {
+            vec[i].reset();
+        }
+    }
+
+    void TestQueue() {
+        std::queue<int> first_q;
+        std::queue<int> second_q;
+
+        constexpr size_t len = 4;
+        for (auto i = 0; i < len; ++i)
+            first_q.push(i);
+
+        second_q.swap(first_q);
+
+        while (!second_q.empty()) {
+            std::cout << second_q.front() << std::endl;
+            second_q.pop();
+        }
+        std::cout << "------------------------";
+        while (!first_q.empty()) {
+            std::cout << first_q.front() << std::endl;
+            first_q.pop();
         }
     }
 }
