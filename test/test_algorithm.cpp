@@ -1,8 +1,9 @@
 #include "test_algorithm.h"
 
-
+#include <algorithm>
 #include <map>
 #include <iostream>
+#include <vector>
 
 namespace test_algorithm {
     void TestBinarySearch() {
@@ -34,5 +35,19 @@ namespace test_algorithm {
         std::cout << mid << std::endl;
         data.erase(data.begin(), data.begin());
         std::cout << data.begin()->second << std::endl;
+    }
+
+    void TestAllOf() {
+        std::vector<int> vec{ 1, 2, 3, 4 };
+        int array[] = { 5, 9, 7, 11 };
+        if (!std::all_of(vec.begin(), vec.end(), [](int i) {return i > 2; })) {
+            std::cout << "Not all number are greater than 2." << std::endl;
+        }
+        if (std::all_of(std::begin(array), std::end(array), [](int i) { return i % 2; })) {
+            std::cout << "All data are odd number." << std::endl;
+        }
+        if (std::none_of(std::begin(array), std::end(array), [](int i) { return i < 4; })) {
+            std::cout << "None of them is less than 4." << std::endl;
+        }
     }
 }
