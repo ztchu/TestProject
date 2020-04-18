@@ -15,4 +15,6 @@ namespace test_container {
     void  TestVectorPtr();
 
     void TestQueue();
+
+    void TestReference();
 }

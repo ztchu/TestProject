@@ -15,12 +15,12 @@
 int main() {
     //test_string::TestEmptyString();
     //test_thread::TestThreadJoin();
-    //test_container::TestQueue();
+    test_container::TestReference();
     //test_class::TestDeleteThis();
     //assert(0);
     //test_chrono::TestTimepoint();
     //test_pointer::TestDeleteNullptr();
-    test_algorithm::TestAllOf();
+    //test_algorithm::TestAllOf();
     // test_function::TestBind();
     std::cout << "Hello world." << std::endl;
     system("pause");

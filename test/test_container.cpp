@@ -4,9 +4,11 @@
 #include <iostream>
 #include <list>
 #include <map>
+#include <numeric>
 #include <queue>
 #include <set>
 #include <string>
+#include <typeinfo>
 #include <vector>
 
 
@@ -156,5 +158,40 @@ namespace test_container {
             std::cout << first_q.front() << std::endl;
             first_q.pop();
         }
+    }
+
+    class MyObj {
+    public:
+        MyObj(int val):
+        val_(val){
+            std::cout << "Construct MyObj." << std::endl;
+        }
+        MyObj(const MyObj& obj) {
+            val_ = obj.val_;
+            std::cout << "Copy construct MyObj." << std::endl;
+        }
+        MyObj(MyObj&& obj) {
+            val_ = obj.val_;
+            std::cout << "Move construct MyObj." << std::endl;
+        }
+        ~MyObj() {
+            std::cout << "Destruct MyObj." << std::endl;
+        }
+        int GetVal() const {
+            return val_;
+        }
+
+    private:
+        int val_;
+    };
+
+    MyObj ConstructVec(int n) {
+        MyObj obj(n);
+        return std::move(obj);
+    }
+    void TestReference() {
+        MyObj&& vec = ConstructVec(10);
+        std::cout << vec.GetVal() << std::endl;
+        std::cout << typeid(vec).name() << std::endl;
     }
 }
