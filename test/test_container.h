@@ -17,4 +17,6 @@ namespace test_container {
     void TestQueue();
 
     void TestReference();
+
+    void TestVectorEmpty();
 }

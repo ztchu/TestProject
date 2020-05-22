@@ -16,6 +16,14 @@ namespace test_class {
     void TestNullptrVector();
 
     void TestDeleteThis();
+
+    void TestCallback();
+
+    void TestMovePtr();
+
+    void TestSharedAndUnique();
+
+    void TestStruct();
 }
 
 

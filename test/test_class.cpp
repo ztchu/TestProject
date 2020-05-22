@@ -1,6 +1,7 @@
 #include "test_class.h"
 
 #include <algorithm>
+#include <functional>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -117,5 +118,60 @@ namespace test_class {
         std::for_each(vec.begin(), vec.end(), [](int *ptr) {
             std::cout << *ptr << std::endl;
         });
+    }
+
+    class MethodA {
+    public:
+        void Print(int number) {
+            std::cout << number << std::endl;
+            std::cout << data_ << std::endl;
+        }
+    private:
+        int data_ = 4;
+    };
+    void TestMethodA(std::function<void(int)> fn) {
+        fn(3);
+    }
+    void TestCallback() {
+        MethodA a;
+        //TestMethodA((std::function<void(int)>)(&MethodA::Print, &a));
+    }
+
+    class TestSharedPtr {
+    public:
+        TestSharedPtr() {
+            d_ = std::make_shared<D>();
+        }
+        std::shared_ptr<D> GetSharedPtr() {
+            return std::move(d_);
+        }
+
+    private:
+        std::shared_ptr<D> d_;
+    };
+
+    void TestMovePtr() {
+        TestSharedPtr ptr;
+        ptr.GetSharedPtr()->Func();
+    }
+
+    void TestSharedAndUnique() {
+        std::unique_ptr<int> uni_ptr = std::make_unique<int>(23);
+        std::shared_ptr<int> shar_ptr = std::move(uni_ptr);
+        std::cout << *shar_ptr << std::endl;
+    }
+
+    struct People {
+        size_t age;
+        std::string name;
+    };
+
+    /*People qing = {
+        .age =  28,
+        .name = "qing"
+    };*/
+
+    void TestStruct() {
+
     }
 }

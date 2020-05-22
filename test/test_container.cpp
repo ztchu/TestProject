@@ -194,4 +194,10 @@ namespace test_container {
         std::cout << vec.GetVal() << std::endl;
         std::cout << typeid(vec).name() << std::endl;
     }
+    
+    // If vector is empty, vec.front() will crash.
+    void TestVectorEmpty() {
+        std::vector<int> vec;
+        std::cout << vec.front() << std::endl;
+    }
 }
