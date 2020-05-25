@@ -13,10 +13,10 @@
 
 
 int main() {
-    test_string::TestStringstream();
+    //test_string::TestStringstream();
     //test_thread::TestThreadJoin();
     //test_container::TestVectorEmpty();
-    //test_class::TestSharedAndUnique();
+    test_class::TestSize();
     //assert(0);
     //test_chrono::TestTimepoint();
     //test_pointer::TestDeleteNullptr();

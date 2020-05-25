@@ -18,6 +18,9 @@ public:
         age_ = 3;  // Crash takes place here
         std::cout << "End to execute Temp()" << std::endl;
     }
+    virtual void Print() {
+        std::cout << "BaseA" << std::endl;
+    }
     ~BaseA() {}
 
 private:
@@ -36,6 +39,11 @@ public:
     void Func(int) {
         std::cout << "C::Func" << std::endl;
     }
+private:
+    void Print() {
+        std::cout << "C" << std::endl;
+    }
+
 private:
     const char* m_name = "class C";
 };
@@ -67,7 +75,7 @@ namespace test_class {
     void TestSize() {
         std::cout << sizeof(C) << std::endl;
         BaseA *ptr = new C;
-        ptr->Func();
+        ptr->Print();
     }
 
     void TestInvalidObject() {
