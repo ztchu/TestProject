@@ -182,4 +182,31 @@ namespace test_class {
     void TestStruct() {
 
     }
+
+    class VitualCA {
+    public:
+        virtual void Print() = 0;
+    };
+    class VirutalCB : public VitualCA {
+    public:
+        virtual void Count() = 0;
+        virtual void Print() override {
+            std::cout << "VirutalCB" << std::endl;
+        }
+    };
+
+    class RealC : public VirutalCB {
+    public:
+        void Count() {
+
+        }
+        virtual void Print() override {
+            std::cout << "RealC" << std::endl;
+        }
+    };
+
+    void TestRealC() {
+        VitualCA* c = new RealC;
+        c->Print();
+    }
 }

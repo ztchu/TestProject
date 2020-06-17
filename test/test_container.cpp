@@ -200,4 +200,10 @@ namespace test_container {
         std::vector<int> vec;
         std::cout << vec.front() << std::endl;
     }
+
+
+
+    void TestCustomizedMap() {
+
+    }
 }

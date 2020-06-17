@@ -24,6 +24,8 @@ namespace test_class {
     void TestSharedAndUnique();
 
     void TestStruct();
+
+    void TestRealC();
 }
 
 

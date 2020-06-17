@@ -19,4 +19,6 @@ namespace test_container {
     void TestReference();
 
     void TestVectorEmpty();
+
+    void TestCustomizedMap();
 }
