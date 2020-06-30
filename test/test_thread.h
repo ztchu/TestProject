@@ -12,4 +12,7 @@ namespace test_thread {
     void TestMutex();
     void TestThread();
     void TestThreadJoin();
+	void TestLock();
+    void TestUinque();
+    void TestLambda();
 }

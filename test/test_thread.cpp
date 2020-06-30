@@ -6,6 +6,7 @@
 #include <iostream>
 #include <mutex>
 #include <string>
+#include <thread>
 #include <Windows.h>
 
 namespace test_thread {
@@ -188,4 +189,65 @@ namespace test_thread {
         if (td1.joinable())
         td1.join();
     }
+
+	std::mutex mutex1;
+	std::mutex mutex2;
+	void TestLock() {
+		
+		std::unique_lock<std::mutex> lock1(mutex1, std::defer_lock);
+		std::unique_lock<std::mutex> lock2(mutex2, std::defer_lock);
+		{
+			std::lock(lock1, lock2);
+			std::cout << "right." << std::endl;
+		}
+	}
+
+    template<typename T, typename... Ts>
+    std::unique_ptr<T> make_unique(Ts&&... args) {
+        return std::unique_ptr<T>(new T(std::forward<Ts>(args)...));
+    }
+
+    class Unique {
+    public:
+        Unique(int a, int b) {
+            std::cout << a << std::endl;
+        }
+    };
+    void TestUinque() {
+        auto ptr = make_unique<Unique>(1, 2);
+        auto p(new Unique(3, 4));
+    }
+
+    void TheadFuncA(std::function<void()> func) {
+        while (1) {
+            func();
+            std::this_thread::sleep_for(std::chrono::milliseconds(300));
+        }
+    }
+    void TheadFuncB(const std::shared_ptr<int>& ptr) {
+        while (1) {
+            static int i = 1;
+            *ptr = ++i;
+            std::cout << *ptr << std::endl;
+            std::this_thread::sleep_for(std::chrono::milliseconds(300));
+
+            if (i >= 30) {
+                break;
+            }
+        }
+    }
+    void TestLambda() {
+        std::shared_ptr<int> ptr = std::make_shared<int>(3);
+        std::function<void()> func = [&ptr]() {
+            static int i = 1;
+            *ptr = ++i;
+            std::cout << *ptr << std::endl;
+        };
+        std::thread td = std::thread(TheadFuncB, ptr);
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+        ptr.reset();
+        std::cout << "ptr reset." << std::endl;
+        td.join();
+    }
+
 }

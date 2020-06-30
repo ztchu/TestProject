@@ -118,4 +118,27 @@ namespace test_class {
             std::cout << *ptr << std::endl;
         });
     }
+
+	class Base {
+	public:
+		Base() {
+
+		}
+		virtual void Print() {
+			std::cout << "Base." << std::endl;
+		}
+	};
+	class Derived : public Base {
+	public:
+		Derived() {
+			Print();
+		}
+		void Print() override {
+			std::cout << "Derived." << std::endl;
+		}
+	};
+
+	void TestVirtualFunc() {
+		Derived d;
+	}
 }

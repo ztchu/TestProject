@@ -16,6 +16,8 @@ namespace test_class {
     void TestNullptrVector();
 
     void TestDeleteThis();
+
+	void TestVirtualFunc();
 }
 
 

@@ -94,4 +94,15 @@ namespace test_container {
         uint32_t totalTime = com_diff.count() * 1000;
         std::cout << "total time: " << totalTime;
     }
+
+    void TestMapBase() {
+        std::map<int, std::string> map_data;
+        map_data.insert({ 1, "qingya" });
+        map_data.insert({ 2, "zijian" });
+        map_data.insert(map_data.rbegin().base(), { 3, "sichan" });
+        //map_data.erase(map_data.rbegin());
+        for (auto& item : map_data) {
+            std::cout << item.first << ", " << item.second << std::endl;
+        }
+    }
 }

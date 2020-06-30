@@ -9,4 +9,5 @@ namespace test_container {
     void TestMapKey();
 
     void TestMap();
+    void TestMapBase();
 }
