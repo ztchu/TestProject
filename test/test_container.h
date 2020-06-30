@@ -10,4 +10,16 @@ namespace test_container {
 
     void TestMap();
     void TestMapBase();
+
+    void TestMoveVector();
+
+    void  TestVectorPtr();
+
+    void TestQueue();
+
+    void TestReference();
+
+    void TestVectorEmpty();
+
+    void TestCustomizedMap();
 }

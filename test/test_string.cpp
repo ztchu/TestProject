@@ -1,6 +1,7 @@
 #include "test_string.h"
 
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -55,5 +56,15 @@ namespace test_string {
         std::string str_empty;
         str_empty = "qingya" + str_empty + "test";
         std::cout << str_empty << std::endl;
+    }
+
+    void TestStringstream() {
+        std::string str("640x480");
+        int width, height;
+        char sep;
+        std::stringstream input(str);
+        input >> width >> sep >> height;
+        std::cout << width << std::endl;
+        std::cout << height << std::endl;
     }
 }

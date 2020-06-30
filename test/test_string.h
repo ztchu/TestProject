@@ -12,4 +12,6 @@ namespace test_string {
     void TestReadString();
 
     void TestEmptyString();
+
+    void TestStringstream();
 }

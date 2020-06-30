@@ -18,6 +18,15 @@ namespace test_class {
     void TestDeleteThis();
 
 	void TestVirtualFunc();
+    void TestCallback();
+
+    void TestMovePtr();
+
+    void TestSharedAndUnique();
+
+    void TestStruct();
+
+    void TestRealC();
 }
 
 

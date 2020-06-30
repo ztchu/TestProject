@@ -43,6 +43,7 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="test_operator.cpp">
+    <ClCompile Include="test_math.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -72,6 +73,7 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="test_operator.h">
+    <ClInclude Include="test_math.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

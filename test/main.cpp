@@ -6,6 +6,7 @@
 #include "test_class.h"
 #include "test_container.h"
 #include "test_function.h"
+#include "test_math.h"
 #include "test_pointer.h"
 #include "test_string.h"
 #include "test_thread.h"
@@ -63,12 +64,15 @@ int main() {
     //test_thread::TestLambda();
     //test_container::TestMapBase();
     //test_class::TestVirtualFunc();
+    //test_string::TestStringstream();
+    //test_thread::TestThreadJoin();
+    //test_container::TestVectorEmpty();
+    //test_class::TestRealC();
     //assert(0);
     //test_chrono::TestTimepoint();
     //test_pointer::TestDeleteNullptr();
-    //test_algorithm::TestBinarySearch();
+    //test_algorithm::TestAllOf();
     // test_function::TestBind();
     //test_operator::TestXor();
-    std::cout << "Hello world." << std::endl;
     system("pause");
 }
