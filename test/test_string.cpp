@@ -67,4 +67,9 @@ namespace test_string {
         std::cout << width << std::endl;
         std::cout << height << std::endl;
     }
+
+    void TestHash() {
+        auto ans = std::hash<std::string>()("qingya");
+        std::cout << ans << std::endl;
+    }
 }

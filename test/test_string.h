@@ -14,4 +14,6 @@ namespace test_string {
     void TestEmptyString();
 
     void TestStringstream();
+
+    void TestHash();
 }

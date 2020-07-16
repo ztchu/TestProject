@@ -22,4 +22,8 @@ namespace test_container {
     void TestVectorEmpty();
 
     void TestCustomizedMap();
+
+    void TestVector();
+
+    void TestEmplace();
 }

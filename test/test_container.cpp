@@ -26,10 +26,10 @@ namespace test_container {
         set_test.insert(ptr);
         set_test.insert(nullptr);*/
 
-        int *ptr = new int(3);
+        int* ptr = new int(3);
         std::cout << *ptr << std::endl;
         delete ptr;
-        int *qtr = new int(4);
+        int* qtr = new int(4);
         std::cout << *qtr << std::endl;
         if (ptr) {
             std::cout << *ptr << std::endl;
@@ -107,6 +107,7 @@ namespace test_container {
         for (auto& item : map_data) {
             std::cout << item.first << ", " << item.second << std::endl;
         }
+    }
     void TestMoveVector() {
         std::vector<int> vec{ 1, 2, 3 };
         for (auto i = 0; i < vec.size(); ++i) {
@@ -131,7 +132,7 @@ namespace test_container {
             delete[] data_;
         }
     private:
-        uint8_t *data_;
+        uint8_t* data_;
     };
 
     void  TestVectorPtr() {
@@ -171,8 +172,8 @@ namespace test_container {
 
     class MyObj {
     public:
-        MyObj(int val):
-        val_(val){
+        MyObj(int val) :
+            val_(val) {
             std::cout << "Construct MyObj." << std::endl;
         }
         MyObj(const MyObj& obj) {
@@ -203,7 +204,7 @@ namespace test_container {
         std::cout << vec.GetVal() << std::endl;
         std::cout << typeid(vec).name() << std::endl;
     }
-    
+
     // If vector is empty, vec.front() will crash.
     void TestVectorEmpty() {
         std::vector<int> vec;
@@ -214,5 +215,48 @@ namespace test_container {
 
     void TestCustomizedMap() {
 
+    }
+
+    void TestVector() {
+        std::vector<int> vec{ 1, 2, 3, 4 };
+        std::for_each(vec.begin(), vec.end(), [](std::vector<int>::value_type val) {
+            std::cout << val << std::endl; });
+    }
+
+    void TestLambda() {
+        auto x1 = []()->std::vector<int> {return { 1, 2 }; };
+        auto x2 = []()->std::list<int> {return { 1, 2 }; };
+
+    }
+
+    class TestVec {
+    public:
+        TestVec(int val):val_(val){
+            std::cout << "TestVec(int val)" << std::endl;
+        }
+        TestVec(const TestVec& vec) {
+            val_ = vec.val_;
+            std::cout << "TestVec(const TestVec& vec)" << std::endl;
+        }
+        TestVec(TestVec&& vec) {
+            val_ = vec.val_;
+            std::cout << "TestVec(TestVec&& vec)" << std::endl;
+        }
+        TestVec& operator=(const TestVec& vec) {
+            if (this != &vec) {
+                val_ = vec.val_;
+            }
+            std::cout << "operator=(const TestVec& vec)" << std::endl;
+            return *this;
+        }
+    private:
+        int val_;
+    };
+
+    void TestEmplace() {
+        std::vector<TestVec> vec;
+        /*TestVec a(1);
+        vec.push_back(std::move(a));*/
+        vec.emplace_back(1);
     }
 }

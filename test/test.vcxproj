@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{82D8A261-69E6-4FF9-B984-29D0349DB5A2}</ProjectGuid>
     <RootNamespace>test</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -84,6 +84,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -115,29 +116,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dll_helper.cpp" />
     <ClCompile Include="test_algorithm.cpp" />
     <ClCompile Include="test_container.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="test_class.cpp" />
     <ClCompile Include="test_function.cpp" />
+    <ClCompile Include="test_map.cpp" />
     <ClCompile Include="test_operator.cpp" />
     <ClCompile Include="test_math.cpp" />
     <ClCompile Include="test_pointer.cpp" />
     <ClCompile Include="test_string.cpp" />
+    <ClCompile Include="test_template.cpp" />
     <ClCompile Include="test_thread.cpp" />
     <ClCompile Include="test_time.cpp" />
+    <ClCompile Include="test_typetraits.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dll_helper.h" />
     <ClInclude Include="test_algorithm.h" />
     <ClInclude Include="test_container.h" />
     <ClInclude Include="test_function.h" />
+    <ClInclude Include="test_map.h" />
     <ClInclude Include="test_operator.h" />
     <ClInclude Include="test_math.h" />
     <ClInclude Include="test_pointer.h" />
     <ClInclude Include="test_string.h" />
     <ClInclude Include="test_class.h" />
+    <ClInclude Include="test_template.h" />
     <ClInclude Include="test_thread.h" />
     <ClInclude Include="test_time.h" />
+    <ClInclude Include="test_typetraits.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
